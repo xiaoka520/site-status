@@ -82,35 +82,35 @@ const navMenu = computed<DropdownOption[]>(() => [
     label: t("nav.about"),
     icon: renderIcon("icon:info"),
   },
-  {
-    key: "logout",
-    label: t("nav.logout"),
-    show: statusStore.loginStatus,
-    icon: renderIcon("icon:logout"),
-    props: {
-      onClick: () => {
-        window.$dialog.warning({
-          title: "退出登录",
-          content: "确定要退出登录吗?",
-          positiveText: "确定",
-          negativeText: "取消",
-          transformOrigin: "center",
-          onPositiveClick: async () => {
-            const { code } = await $fetch("/api/logout", {
-              method: "POST",
-            });
-            if (code !== 200) {
-              window.$message.error("退出登录失败");
-              return;
-            }
-            window.$message.success("退出登录成功");
-            statusStore.loginStatus = false;
-            localStorage.removeItem("authToken");
-          },
-        });
-      },
-    },
-  },
+//  {
+//    key: "logout",
+//    label: t("nav.logout"),
+//    show: statusStore.loginStatus,
+//    icon: renderIcon("icon:logout"),
+//    props: {
+//      onClick: () => {
+//        window.$dialog.warning({
+//          title: "退出登录",
+//          content: "确定要退出登录吗?",
+//          positiveText: "确定",
+//          negativeText: "取消",
+//          transformOrigin: "center",
+//          onPositiveClick: async () => {
+//            const { code } = await $fetch("/api/logout", {
+//              method: "POST",
+//            });
+//            if (code !== 200) {
+//             window.$message.error("退出登录失败");
+//              return;
+//            }
+//            window.$message.success("退出登录成功");
+//            statusStore.loginStatus = false;
+//            localStorage.removeItem("authToken");
+//          },
+//        });
+//      },
+//    },
+//  },
 ]);
 
 // 模式图标
